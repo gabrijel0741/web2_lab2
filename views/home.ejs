@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+</head>
+
+<body class="content">
+
+<main class="main">
+    <div class="main-sql-inj-div">
+        <h1><%= title %></h1>
+        
+        <div>
+            <p class="upute">
+                <strong>Upute: </strong> 
+                Ovo je tipični primjer SQL ubacivanja. Ako se prilikom slanja zahtjeva uključi ranjivost preko checkbox 
+                ...
+            </p>
+        </div>
+        <div class="checkbox-div">
+            <input type="checkbox" name="sql-inj" id="sql-inj" class="sql-inj-box">
+            <label for="sql-inj" class="sql-inj-label">Uključi/Isključi ranjivost SQL ubacivanje</label>
+        </div>
+        <div class="login-div">
+            <div class="username-div">
+                <label for="username">Korisničko ime:</label>
+                <input class="username-input" type="text" name="username" id="username" placeholder="Unesite korisničko ime">
+            </div>
+            <div class="password-div">
+                <label for="password">Lozinka:</label>
+                <input class="password-input" type="text" name="password" id="password" placeholder="Unesite lozinku">
+            </div>
+            <button type="button" class="login-btn">Prijavi se</button>
+        </div>
+        <% if (result !== undefined ) { %>
+            <div>
+                <p class="alert"><%= result %></p>
+            </div>
+        <% } %>
+    </div>
+    
+    <a href="/brokenAuth">
+        <button class="broken-auth-redirect-btn">Testiraj Lošu Autentifikaciju</button>
+    </a>
+</main>
+
+</body>
+
+</html>
+
+
+<script>
+
+</script>
