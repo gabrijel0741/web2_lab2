@@ -4,23 +4,9 @@ const User = require('../models/AuthUserModel');
 
 router.post('/', async function (req, res, next) {
     const { username, password, checked } = req.body;
-    let user = undefined;
-    user = await User.fetchByUsername(username)
+    userResult = await User.fetchByUsername(username,password, checked)
 
-    if(checked){
-        let errormsg = 'Netočna lozinka'
-        if(user && password === user.password){
-                req.session.user = user
-                return res.json({ msg: "Uspješna prijava" });
-        }
-        else{
-            if(user.user_id === undefined){
-                errormsg = 'Netočno korisničko ime.'
-            }
-            return res.json({ msg: errormsg });
-        }
-    }
-    
+    return res.json({msg: userResult})
 });
 
 

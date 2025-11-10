@@ -1,13 +1,5 @@
 const {Pool} = require('pg');
 
-// const pool = new Pool({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'web2labos2_bln7',
-//     password: 'bazepodataka',
-//     port: 5433
-// });
-
 const pool = new Pool({
     user: process.env.DB_USERNAME,
     host: process.env.DB_HOSTNAME,
@@ -32,11 +24,13 @@ const sql_create_users = `CREATE TABLE users(
     user_name text NOT NULL UNIQUE,
     first_name text NOT NULL,
     last_name text NOT NULL,
-    password text NOT NULL
+    password text NOT NULL,
+    failed_attempts INT DEFAULT 0,
+    locked_until TIMESTAMP DEFAULT NOW()
 )`;
 
 const sql_insert_users = `INSERT INTO users (user_name, first_name, last_name, password) VALUES ('aadmin', 'admin', 'adminko', 'aaddmmiinn'),
-                          ('test', 'test', 'testić', 'tteesstt')`
+                          ('test', 'test', 'testić', 'tteesstt'), ('pogodi', 'pogodi', 'pogodić', '123456789')`
 
 
 let table_names = [

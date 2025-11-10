@@ -51,8 +51,9 @@
         <div>
             <p class="upute">
                 <strong>Upute: </strong> 
-                Ovo je tipični primjer SQL ubacivanja. Ako se prilikom slanja zahtjeva uključi ranjivost preko checkbox 
-                ...
+                Ovo je primjer SQL ubacivanja. Ako se prilikom slanja zahtjeva uključi ranjivost preko checkboxa i zatim u polju username
+                upišena kraju unosa: <strong>' OR 1=1 --</strong> onda je moguće upisati bilo koje korisničko ime ili lozinku i dobiti uspješnu prijavu.
+                Ako checkbox nije uključen onda SQL ubacivanje nije moguće te će pokušaj upisivanja <strong>' OR 1=1 --</strong> biti neuspješna prijava.
             </p>
         </div>
         <div class="checkbox-div">
