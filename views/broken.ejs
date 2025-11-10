@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="./home.css">
 </head>
 
 <body class="content">
@@ -24,7 +25,7 @@
         </div>
         <div class="checkbox-div">
             <input type="checkbox" name="broken-auth" id="broken-auth" class="broken-auth-box">
-            <label for="broken-auth" class="broken-auth-label">Uključi/Isključi ranjivost Loše Autentifikacije</label>
+            <label for="broken-auth" class="broken-auth-label">Uključi ranjivost Loše Autentifikacije</label>
         </div>
         <div class="login-div">
             <div class="username-div">
@@ -33,15 +34,13 @@
             </div>
             <div class="password-div">
                 <label for="password">Lozinka:</label>
-                <input class="password-input" type="text" name="password" id="password" placeholder="Unesite lozinku">
+                <input class="password-input" type="password" name="password" id="password" placeholder="Unesite lozinku">
             </div>
             <button type="button" class="login-btn">Prijavi se</button>
         </div>
-        <% if (result !== undefined ) { %>
-            <div>
-                <p class="alert"><%= result %></p>
-            </div>
-        <% } %>
+        <div>
+            <p class="alert"></p>
+        </div>
     </div>
     
     <a href="/">

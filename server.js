@@ -8,6 +8,7 @@ const pgSession = require('connect-pg-simple')(session)
 
 const homeRouter = require('./routes/home.routes');
 const brokenRouter = require('./routes/broken.routes')
+const sqlLoginRouter = require('./routes/sqlLogin.routes')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -28,6 +29,7 @@ app.use(session({
 
 app.use('/', homeRouter);
 app.use('/brokenAuth', brokenRouter)
+app.use('/sqlLogin', sqlLoginRouter)
 
 
 app.listen(3000);

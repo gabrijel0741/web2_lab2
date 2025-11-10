@@ -1,0 +1,59 @@
+body{
+    background-color: rgb(154, 154, 154);
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+}
+main{
+    height: 90vh;
+    background-color: rgb(213, 213, 213);
+    border-radius: 10px;
+    padding: 24px;
+}
+.main-sql-inj-div, .main-broken-auth-div{
+    display: flex;
+    flex-direction: column;
+}
+.upute{
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.checkbox-div, .username-div, .password-div{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 8px;
+    font-size: x-large;
+}
+
+.username-input, .password-input{
+    padding: 4px;
+    padding-left: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.login-btn{
+    text-align: center;
+    width: 120px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.broken-auth-redirect-btn, .sql-inj-redirect-btn{
+    text-align: center;
+    width: 180px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: large;
+}
+

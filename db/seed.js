@@ -1,5 +1,13 @@
 const {Pool} = require('pg');
 
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'web2labos2_bln7',
+//     password: 'bazepodataka',
+//     port: 5433
+// });
+
 const pool = new Pool({
     user: process.env.DB_USERNAME,
     host: process.env.DB_HOSTNAME,
@@ -59,6 +67,7 @@ if ((tables.length !== table_data.length) || (tables.length !== table_names.leng
 
 (async () => {
     console.log("Creating and populating tables");
+    await pool.query("DROP TABLE users;", [])
     for (let i = 0; i < tables.length; i++) {
         console.log("Creating table " + table_names[i] + ".");
         try {

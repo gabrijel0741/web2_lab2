@@ -7,6 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="./home.css">
+    <script>
+        async function login() {
+            let ranjivost = document.querySelector(".sql-inj-box").checked;
+            let usrname = document.querySelector(".username-input").value;
+            let passw = document.querySelector(".password-input").value;
+
+            // let url = "http://localhost:3000/sqlLogin";
+            let url = "https://web2-lab2-im4f.onrender.com:3000/sqlLogin";
+            
+            try {
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: usrname,
+                        checked: ranjivost,
+                        password: passw
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    let odgovor = document.querySelector(".alert")
+                    odgovor.innerHTML = data["msg"];
+                })
+                .catch(err => console.error("Greška:", err));
+            } catch (err) {
+                console.error("Greška pri dohvaćanju podataka:", err);
+            }
+        }
+    </script>
 </head>
 
 <body class="content">
@@ -24,7 +57,7 @@
         </div>
         <div class="checkbox-div">
             <input type="checkbox" name="sql-inj" id="sql-inj" class="sql-inj-box">
-            <label for="sql-inj" class="sql-inj-label">Uključi/Isključi ranjivost SQL ubacivanje</label>
+            <label for="sql-inj" class="sql-inj-label">Uključi ranjivost SQL ubacivanje</label>
         </div>
         <div class="login-div">
             <div class="username-div">
@@ -33,15 +66,13 @@
             </div>
             <div class="password-div">
                 <label for="password">Lozinka:</label>
-                <input class="password-input" type="text" name="password" id="password" placeholder="Unesite lozinku">
+                <input class="password-input" type="password" name="password" id="password" placeholder="Unesite lozinku">
             </div>
-            <button type="button" class="login-btn">Prijavi se</button>
+            <button type="button" class="login-btn" onclick=login()>Prijavi se</button>
         </div>
-        <% if (result !== undefined ) { %>
-            <div>
-                <p class="alert"><%= result %></p>
-            </div>
-        <% } %>
+        <div>
+            <p class="alert"></p>
+        </div>
     </div>
     
     <a href="/brokenAuth">

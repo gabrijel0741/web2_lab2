@@ -3,8 +3,7 @@ const router = express.Router();
 
 router.get('/', async function (req, res, next) {
     res.render('broken', {
-        title: req.query.title || 'Loša Autentifikacija (Broken Authentification)',
-        result: null
+        title: req.query.title || 'Loša Autentifikacija (Broken Authentification)'
     });
 });
 
