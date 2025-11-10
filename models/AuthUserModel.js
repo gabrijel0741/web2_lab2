@@ -55,7 +55,7 @@ module.exports = class User {
                     else{
                         let newFailedAttempts = usrResults[0].failed_attempts + 1
                         await dbUpdateFailedAndLock(newFailedAttempts,usrResults[0].locked_until,username)
-                        return "Netočna lozinka."
+                        return "Netočno korisničko ime ili lozinka."
                     }
                 }
             }
