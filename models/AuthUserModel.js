@@ -33,9 +33,9 @@ module.exports = class User {
                 if(usrResults[0].failed_attempts >= 4){
                     if(usrPassResults.length === 0){
                         //Opet kriva lozinka
-                        let newLockTime = new Date(Date.now() + 1*60*1000);
+                        let newLockTime = new Date(Date.now() + 30*60*1000);
                         await dbUpdateFailedAndLock(5,newLockTime,username)
-                        return "Prijava za ovog korisnika je zaključana idućih 1 minuta."
+                        return "Prijava za ovog korisnika je zaključana idućih 30 minuta."
                     }
                     else{
                         //Dobra prijava, provjeri vrijeme

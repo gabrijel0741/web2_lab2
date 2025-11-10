@@ -51,7 +51,14 @@
         <div>
             <p class="upute">
                 <strong>Upute: </strong> 
-                Ovo je primjer Loše autentifikacije. Ako se prilikom slanja zahtjeva uključi ranjivost preko checkbox 
+                Ovo je primjer Loše autentifikacije. Ako se prilikom slanja zahtjeva uključi ranjivost preko checkboxa onda napadač jako lagano
+                može brute force napadom odgonetnuti kako se prijaviti u sustav. Kao povrat detaljno dobije povratne informacije je li korisničko
+                ime problem ili je lozinka problem. Ako korisnik sazna da postoji korisničko ime 'pogodi', lagano može doći do lozinke
+                jer je ona jako nesigurna (123456789) i nema neka granica koliko puta smije pogrešnu lozinku upisati. Ako je checkbox za ranjivost 
+                isključen, onda je dopušteno maksimalno za svakog korisnika 4 puta pogriješiti tijekom upisivanja lozinke. Nakon 4 pogrešno upisane
+                lozinke, račun se zaključava te ostaje zaključan na 30 minuta. Ako napadač ponovno pogrešno napiše lozinku, račun se odmah zaključava.
+                Ako je prošlo više od 30 minuta od zadnjeg neuspješnog pokušaja prijave na taj račun i upišu se pravi podaci, prijava će biti uspješna.
+                Također, kod isključenog checkboxa korisnik nema mogućnost znati je li pogriješio prilikom unosa lozinke ili korisničkog imena.
                 ...
             </p>
         </div>
