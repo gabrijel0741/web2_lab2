@@ -67,8 +67,8 @@ if ((tables.length !== table_data.length) || (tables.length !== table_names.leng
 
 (async () => {
     console.log("Creating and populating tables");
-    await pool.query("DROP TABLE session;", [])
-    await pool.query("DROP TABLE users;", [])
+    await pool.query("DROP TABLE IF EXISTS session;", [])
+    await pool.query("DROP TABLE IF EXISTS users;", [])
     for (let i = 0; i < tables.length; i++) {
         console.log("Creating table " + table_names[i] + ".");
         try {
