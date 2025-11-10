@@ -12,7 +12,7 @@ module.exports = class User {
     static async fetchByUsername(username, password, checked) {
         let results = null
         if(checked){
-            results = await dbGetUserByName(username, password)
+            results = await dbGetUserByNameSQL(username, password)
         }
         else{
             results = await dbGetUserByNameNOSQLinj(username, password)
@@ -22,7 +22,7 @@ module.exports = class User {
 
 }
 
-dbGetUserByName = async (user_name, password) => {
+dbGetUserByNameSQL = async (user_name, password) => {
     const sql = `SELECT user_id, user_name, first_name, last_name, password
     FROM users WHERE user_name = '${user_name}' AND password = '${password}'`;
     try {
